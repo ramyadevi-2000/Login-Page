@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Dashboard</title>
+
+  <style>
+    body {
+      margin: 0;
+
+      font-family: Arial, sans-serif;
+
+      background:
+        linear-gradient(
+          135deg,
+          #141e30,
+          #5391d9
+        );
+
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dashboard {
+      width: 350px;
+
+      padding: 40px;
+
+      background-color: white;
+
+      border-radius: 15px;
+
+      text-align: center;
+
+      box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    h1 {
+      color: #1e293b;
+    }
+
+    p {
+      color: #64748b;
+    }
+
+    button {
+      margin-top: 20px;
+
+      padding: 12px 25px;
+
+      background-color: #427ebe;
+      color: white;
+
+      border: none;
+      border-radius: 7px;
+
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <h1>Dashboard</h1>
+
+    <p id="welcomeMessage"></p>
+
+    <button onclick="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <script>
+    const loggedInUser =
+      sessionStorage.getItem("loggedInUser");
+
+    if (!loggedInUser) {
+      window.location.href = "index.html";
+    } else {
+      document.getElementById(
+        "welcomeMessage"
+      ).textContent =
+        "Welcome, " + loggedInUser + "!";
+    }
+
+    function logout() {
+      sessionStorage.removeItem("loggedInUser");
+
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
